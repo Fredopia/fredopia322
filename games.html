@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameZone · Games</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* ---------- SHARED STYLES (copy to all pages) ---------- */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+    body { background: #0b0b0e; color: #f0f0f5; line-height: 1.5; min-height: 100vh; display: flex; flex-direction: column; }
+    a { color: #7affb0; text-decoration: none; transition: 0.2s; }
+
+    header {
+      background: rgba(16, 16, 22, 0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #2a2a32;
+      padding: 14px 5%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #a0ffd0, #3aff92);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo i { -webkit-text-fill-color: initial; color: #3aff92; font-size: 2rem; }
+    nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+    nav a {
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 6px 0;
+      color: #b0b0c0;
+      border-bottom: 2px solid transparent;
+      transition: 0.25s;
+    }
+    nav a:hover, nav a.active { color: #7affb0; border-bottom-color: #7affb0; }
+
+    .container { max-width: 1280px; margin: 0 auto; padding: 28px 20px 50px; width: 100%; flex: 1; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+      margin: 16px 0 28px;
+    }
+    .card {
+      background: #13131b;
+      border: 1px solid #262633;
+      border-radius: 28px;
+      padding: 22px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      transition: 0.25s;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.5);
+    }
+    .card:hover { transform: translateY(-6px); border-color: #3aff92; box-shadow: 0 16px 30px -8px rgba(58,255,146,0.12); }
+    .card h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 6px; color: #eef5f0; }
+    .card p { color: #a0b0aa; font-size: 0.9rem; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 20px;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 60px;
+      border: none;
+      background: #2b2b36;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.25s;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+      margin-top: 20px;
+      width: 100%;
+    }
+    .btn-accent { background: #1f2e28; color: #d5ffec; border: 1px solid #3aff92; }
+    .btn-accent:hover { background: #1f3a30; transform: scale(1.02); box-shadow: 0 0 30px rgba(58,255,146,0.3); }
+
+    .search-container { margin-bottom: 28px; }
+    .search-bar {
+      width: 100%;
+      padding: 16px 24px;
+      background: #16161e;
+      border: 1px solid #2d2d3a;
+      border-radius: 60px;
+      color: #f0f0f5;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.25s;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.6);
+    }
+    .search-bar:focus { border-color: #3aff92; box-shadow: 0 0 20px rgba(58,255,146,0.15), inset 0 2px 6px rgba(0,0,0,0.4); }
+
+    @media (max-width: 480px) {
+      header { flex-direction: column; align-items: stretch; gap: 8px; }
+      nav { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><i class="fas fa-gamepad"></i> GameZone</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="games.html" class="active">Games</a>
+      <a href="cheats.html">Cheats</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+  <div class="container">
+    <h1 style="color:#7affb0; font-size:2.2rem;">Browse Games</h1>
+    <div class="search-container">
+      <input type="text" class="search-bar" placeholder="Filter games..." id="gameFilter" oninput="filterGames(this.value)">
+    </div>
+    <div class="grid" id="games-grid">
+      <!-- injected by JS -->
+    </div>
+  </div>
+  <script>
+    const gamesList = [
+      { name: "Cyber Rush 2026", type: "Action / Sci-Fi", size: "45 GB" },
+      { name: "Shadow Ninja: Vengeance", type: "Stealth / RPG", size: "12 GB" },
+      { name: "Speed Horizon Tracker", type: "Racing / Simulation", size: "28 GB" },
+      { name: "Realm of Fantasy VII", type: "Open World / MMORPG", size: "62 GB" },
+      { name: "Grand Theft Auto: Vice City", type: "Action / Open World", size: "1.5 GB" },
+      { name: "Survival Instinct", type: "Horror / Sandbox", size: "18 GB" }
+    ];
+    const grid = document.getElementById('games-grid');
+    grid.innerHTML = gamesList.map(g => `
+      <div class="card" data-name="${g.name.toLowerCase()}">
+        <div><h3>${g.name}</h3><p>${g.type}</p><p style="font-size:0.8rem; color:#7a8a82;">${g.size}</p></div>
+        <button class="btn btn-accent" onclick="alert('⬇️ Downloading ${g.name}...')"><i class="fas fa-cloud-download-alt"></i> Download</button>
+      </div>
+    `).join('');
+
+    window.filterGames = function(val) {
+      const q = val.toLowerCase().trim();
+      document.querySelectorAll('#games-grid .card').forEach(c => {
+        c.style.display = c.getAttribute('data-name').includes(q) ? 'flex' : 'none';
+      });
+    };
+  </script>
+</body>
+</html>

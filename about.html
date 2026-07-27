@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameZone · About</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* ---------- SHARED STYLES (copy to all pages) ---------- */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+    body { background: #0b0b0e; color: #f0f0f5; line-height: 1.5; min-height: 100vh; display: flex; flex-direction: column; }
+    a { color: #7affb0; text-decoration: none; transition: 0.2s; }
+
+    header {
+      background: rgba(16, 16, 22, 0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #2a2a32;
+      padding: 14px 5%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #a0ffd0, #3aff92);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo i { -webkit-text-fill-color: initial; color: #3aff92; font-size: 2rem; }
+    nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+    nav a {
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 6px 0;
+      color: #b0b0c0;
+      border-bottom: 2px solid transparent;
+      transition: 0.25s;
+    }
+    nav a:hover, nav a.active { color: #7affb0; border-bottom-color: #7affb0; }
+
+    .container { max-width: 1280px; margin: 0 auto; padding: 28px 20px 50px; width: 100%; flex: 1; }
+    .about-box { background: #13131b; border: 1px solid #262633; border-radius: 32px; padding: 32px 28px; }
+    .about-box h1 { color: #7affb0; font-size: 2.2rem; margin-bottom: 12px; }
+    .about-box p { color: #c8d8d2; font-size: 1.05rem; margin-bottom: 16px; max-width: 720px; }
+    .highlight-text { color: #7affb0; font-weight: 600; }
+
+    @media (max-width: 480px) {
+      header { flex-direction: column; align-items: stretch; gap: 8px; }
+      nav { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><i class="fas fa-gamepad"></i> GameZone</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="games.html">Games</a>
+      <a href="cheats.html">Cheats</a>
+      <a href="about.html" class="active">About</a>
+    </nav>
+  </header>
+  <div class="container">
+    <div class="about-box">
+      <h1><i class="fas fa-info-circle"></i> About GameZone</h1>
+      <p><span class="highlight-text">GameZone</span> is a passion project built for gamers by gamers. We provide a curated collection of <span class="highlight-text">free game downloads</span> and a massive, ever-growing database of cheat codes.</p>
+      <p>Whether you're looking for the latest AAA title or a retro classic, our Games page has you covered. And if you need an edge, our Cheats page lets you paste any cheat list and instantly see it formatted cleanly.</p>
+      <p>All content is community-driven and updated regularly. Stay tuned for new games and cheats every week!</p>
+      <p style="margin-top: 20px; color: #7affb0;"><i class="fas fa-bolt"></i> Level up your gaming experience with GameZone.</p>
+    </div>
+  </div>
+</body>
+</html>
