@@ -1,376 +1,1029 @@
-/* General Base Styles */
-* { 
-    box-sizing: border-box; 
-    margin: 0; 
-    padding: 0; 
-    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; 
-}
-body { 
-    background-color: #121214; 
-    color: #fff; 
-    line-height: 1.6; 
-}
-a { 
-    color: #00ff88; 
-    text-decoration: none; 
-    cursor: pointer; 
-}
-/* Prevents links from showing standard text underlines on hover */
-a:hover { 
-    text-decoration: none; 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Header & Responsive Navigation */
-header { 
-    background-color: #1a1a1e; 
-    padding: 15px 5%; 
-    display: flex; 
-    flex-direction: column;
-    align-items: center; 
-    gap: 15px;
-    border-bottom: 2px solid #00ff88; 
-    position: sticky; 
-    top: 0; 
-    z-index: 100; 
+/* Modern Color Palette */
+:root {
+  --primary: #2a75bb; /* Nintendo blue */
+  --secondary: #ffcc00; /* Nintendo yellow */
+  --dark: #1a1a2e;
+  --light: #f8f9fa;
+  --accent: #e63946;
+  --success: #4CAF50;
+  --info: #00b4d8;
+  --search-bg: rgba(255, 255, 255, 0.1);
+  --card-bg: rgba(255, 255, 255, 0.08);
 }
-.logo { 
-    font-size: 24px; 
-    font-weight: bold; 
-    color: #00ff88; 
+
+/* Modern Base Styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--dark);
+  color: var(--light);
+  background-image: url('images/gaming-bg.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
+/* Modern Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(42, 117, 187, 0.85) 100%);
+  z-index: -1;
+}
+
+/* Loading Animation */
+.loading::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--dark);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading::after {
+  content: '';
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--secondary);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== HEADER & NAVIGATION ===== */
+header {
+  background-color: rgba(26, 26, 46, 0.98);
+  padding: 15px 5%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 2px solid var(--secondary);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+  min-width: 250px;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+  transition: transform 0.3s ease;
+  border-radius: 8px;
+}
+
+.logo:hover {
+  transform: rotate(5deg) scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 800;
+  background: linear-gradient(45deg, var(--secondary), var(--primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+header h1:hover {
+  text-shadow: 0 0 20px rgba(255, 204, 0, 0.7);
+}
+
+/* Modern Navigation */
 nav {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex: 2;
+  min-width: 300px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--light);
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav a:hover {
+  color: var(--secondary);
+  background: rgba(42, 117, 187, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(42, 117, 187, 0.3);
+}
+
+nav a.active {
+  color: var(--secondary);
+  background: rgba(42, 117, 187, 0.3);
+  border-color: var(--secondary);
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
+}
+
+/* ===== SEARCH BAR ===== */
+.search-container {
+  display: flex;
+  gap: 10px;
+  margin: 15px auto;
+  max-width: 500px;
+  width: 100%;
+  justify-content: center;
+  order: 3;
+  flex-basis: 100%;
+}
+
+.search-input {
+  flex: 1;
+  padding: 12px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  background: var(--search-bg);
+  color: var(--light);
+  font-size: 1rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  min-width: 200px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--secondary);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(255, 204, 0, 0.3);
+}
+
+.search-button {
+  padding: 12px 25px;
+  background: linear-gradient(45deg, var(--primary), var(--info));
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.search-button:hover {
+  background: linear-gradient(45deg, var(--info), var(--primary));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(42, 117, 187, 0.4);
+}
+
+/* Search Results Dropdown */
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(26, 26, 46, 0.98);
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: none;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.search-result-item {
+  padding: 12px 15px;
+  margin: 5px 0;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+.search-result-item:hover {
+  background: rgba(42, 117, 187, 0.2);
+  border-left-color: var(--secondary);
+  transform: translateX(5px);
+}
+
+.search-result-item h4 {
+  color: var(--secondary);
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+}
+
+.search-result-item p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+  padding: 40px 5%;
+  flex: 1;
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Modern Cards */
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 30px;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 204, 0, 0.3);
+}
+
+/* ===== HOME SECTION ===== */
+.home-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(26, 26, 46, 0.6);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  margin: 30px auto;
+  max-width: 1000px;
+  border: 2px solid rgba(255, 204, 0, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.home-section h2 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, var(--secondary), var(--primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.home-section p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin: 0 auto 30px;
+  line-height: 1.8;
+}
+
+/* ===== GAMES & CHEATS SECTIONS ===== */
+.games-section, .cheats-section {
+  padding: 40px 0;
+}
+
+.games-section h2, .cheats-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: var(--secondary);
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.games-section h2::after, .cheats-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+  border-radius: 2px;
+}
+
+/* Game Cards */
+.game-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  align-items: center;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--secondary);
+  box-shadow: 0 15px 40px rgba(255, 204, 0, 0.2);
+}
+
+.game-card img {
+  width: 200px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-info {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--light);
+}
+
+.game-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  background: linear-gradient(45deg, var(--secondary), var(--primary));
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.5px;
+}
+
+.game-description {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ===== CHEATS SYSTEM ===== */
+.cheats-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.button-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.cheat-btn {
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.cheat-btn:hover, .cheat-btn.active {
+  background: linear-gradient(45deg, var(--primary), var(--info));
+  border-color: transparent;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(42, 117, 187, 0.4);
+}
+
+.cheat-text {
+  display: none;
+  background: rgba(26, 26, 46, 0.9);
+  padding: 35px;
+  border-radius: 15px;
+  border-left: 5px solid var(--secondary);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+.cheat-text.active {
+  display: block;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.cheat-text h1 {
+  color: var(--secondary);
+  margin-top: 0;
+  font-size: 2.2rem;
+  border-bottom: 3px solid rgba(255, 204, 0, 0.3);
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+.cheat-text p {
+  margin: 15px 0;
+  padding-left: 20px;
+  position: relative;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.cheat-text p::before {
+  content: '▶';
+  color: var(--secondary);
+  position: absolute;
+  left: 0;
+  font-size: 0.9rem;
+}
+
+.action {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 25px 0 15px !important;
+  padding-left: 0 !important;
+}
+
+.action::before {
+  content: '⚡';
+  margin-right: 10px;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-block;
+  background: linear-gradient(45deg, var(--primary), var(--info));
+  color: white;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(42, 117, 187, 0.4);
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(42, 117, 187, 0.5);
+  background: linear-gradient(45deg, var(--info), var(--primary));
+}
+
+.toggle-game-details {
+  background: linear-gradient(45deg, var(--primary), var(--info));
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(42, 117, 187, 0.3);
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+.toggle-game-details:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(42, 117, 187, 0.4);
+  background: linear-gradient(45deg, var(--info), var(--primary));
+}
+
+.download-btn {
+  padding: 14px 28px;
+  background: linear-gradient(45deg, var(--success), #2e7d32);
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.download-btn:hover {
+  background: linear-gradient(45deg, #2e7d32, var(--success));
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(76, 175, 80, 0.5);
+}
+
+.download-btn:disabled,
+.downloaded {
+  background: #2e7d32 !important;
+  cursor: default;
+  box-shadow: none;
+  transform: none !important;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: linear-gradient(180deg, rgba(26, 26, 46, 0.95) 0%, rgba(26, 26, 46, 1) 100%);
+  text-align: center;
+  padding: 40px 5%;
+  font-size: 1rem;
+  position: relative;
+  width: 100%;
+  margin-top: auto;
+  border-top: 3px solid var(--secondary);
+  box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.3);
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+}
+
+footer p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 8px 15px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.footer-links a:hover {
+  color: var(--secondary);
+  background: rgba(255, 204, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(45deg, var(--primary), var(--info));
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  z-index: 100;
+  box-shadow: 0 5px 20px rgba(42, 117, 187, 0.4);
+  transition: all 0.3s ease;
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 10px 25px rgba(42, 117, 187, 0.6);
+}
+
+/* Toast Notifications */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(26, 26, 46, 0.95);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border: 2px solid var(--secondary);
+  backdrop-filter: blur(10px);
+}
+
+.toast.show {
+  opacity: 1;
+}
+
+.toast-success {
+  border-color: var(--success);
+  background: rgba(26, 26, 46, 0.95);
+}
+
+.toast-error {
+  border-color: var(--accent);
+  background: rgba(26, 26, 46, 0.95);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Large Desktops */
+@media (max-width: 1200px) {
+  .cheats-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .button-row {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}
+
+/* Tablets and Small Laptops */
+@media (max-width: 992px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .header-left {
+    flex-direction: column;
+    text-align: center;
+    min-width: auto;
+  }
+  
+  nav {
+    width: 100%;
     justify-content: center;
-    gap: 10px;
-}
-/* CHANGED: Target navigation hyperlinks instead of old button tags */
-nav a { 
-    background: none; 
-    border: none; 
-    color: #aaa; 
-    font-size: 15px; 
-    cursor: pointer; 
-    font-weight: 600; 
-    padding: 8px 12px; 
-    transition: 0.3s; 
-    display: inline-block;
-}
-/* CHANGED: Applies underline effects directly to navigation link actions */
-nav a:hover, nav a.active { 
-    color: #00ff88; 
-    border-bottom: 2px solid #00ff88; 
-}
-
-/* Container Structure */
-.container { 
-    max-width: 1200px; 
-    margin: 20px auto; 
-    padding: 0 20px; 
-}
-/* REMOVED .page and .page.active toggle rules because pages no longer hide/show on a single index path */
-h1 { 
-    margin-bottom: 20px; 
-    color: #00ff88; 
-    font-size: 2rem;
-}
-.section-title {
-    margin: 25px 0 15px;
-}
-
-/* Responsive Search Bar */
-.search-container { 
-    margin-bottom: 25px; 
-}
-.search-bar { 
-    width: 100%; 
-    padding: 14px 20px; 
-    background-color: #222226; 
-    border: 1px solid #444; 
-    border-radius: 25px; 
-    color: #fff; 
-    font-size: 16px; 
-    outline: none; 
-    transition: 0.3s; 
-}
-.search-bar:focus { 
-    border-color: #00ff88; 
-    box-shadow: 0 0 8px rgba(0, 255, 136, 0.4); 
-}
-
-/* Hero Banner Component */
-.hero-banner {
-    background: #1a1a1e; 
-    padding: 40px 20px; 
-    border-radius: 8px; 
-    border: 1px solid #333; 
-    text-align: center; 
-    margin-bottom: 30px;
-}
-.hero-banner p {
-    color: #aaa; 
-    margin: 15px 0 25px;
-}
-.hero-buttons {
-    display: flex; 
-    flex-direction: column;
-    gap: 15px; 
-    justify-content: center;
-}
-
-/* Auto-Adapting Grid (No Media Queries Needed For Layout) */
-.grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
-    gap: 20px; 
-}
-.card { 
-    background-color: #1a1a1e; 
-    border: 1px solid #333; 
-    border-radius: 8px; 
-    padding: 20px; 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: 0.3s; 
-}
-.card:hover { 
-    transform: translateY(-5px); 
-    border-color: #00ff88; 
-}
-.card h3 { 
-    margin-bottom: 10px; 
-}
-
-/* UI Buttons & Hyperlink Action Components */
-.btn { 
-    display: block; 
-    padding: 12px 20px; 
-    font-weight: bold; 
-    border-radius: 5px; 
-    border: none; 
-    cursor: pointer; 
-    text-align: center; 
-    margin-top: 15px; 
-    width: 100%; 
-    transition: 0.3s; 
-}
-.accent-btn {
-    background-color: #00ff88; 
-    color: #121214; 
-}
-.accent-btn:hover { 
-    background-color: #00cc6e; 
-    color: #121214; /* Keep text dark color on hover */
-}
-.dark-btn {
-    background: #333; 
-    color: #fff;
-}
-.dark-btn:hover {
-    background: #444;
-    color: #fff; /* Keep text white color on hover */
-}
-
-/* Responsive Cheats Split Screen Layout */
-.cheats-layout { 
-    display: flex; 
-    flex-direction: column;
-    gap: 30px; 
-}
-.main-cheats-content { 
-    order: 1;
-}
-.related-sidebar { 
+  }
+  
+  nav a {
+    padding: 8px 15px;
+    font-size: 1rem;
+  }
+  
+  .search-container {
     order: 2;
-    background-color: #1a1a1e; 
-    padding: 20px; 
-    border-radius: 8px; 
-    border: 1px solid #333; 
-}
-.related-sidebar h3 { 
-    margin-bottom: 15px; 
-    color: #00ff88; 
-    padding-bottom: 5px; 
-    border-bottom: 1px solid #333; 
-}
-.related-list { 
-    list-style: none; 
-}
-.related-list li { 
-    margin-bottom: 12px; 
-}
-
-/* Cheat Items Display */
-.cheat-detail-box { 
-    background-color: #1a1a1e; 
-    padding: 20px; 
-    border-radius: 8px; 
-    border: 1px solid #333; 
-    margin-top: 15px; 
-}
-.cheat-item { 
-    background: #222226; 
-    padding: 15px; 
-    border-radius: 6px; 
-    margin-bottom: 15px; 
-    border-left: 4px solid #00ff88; 
-}
-.back-link { 
-    display: inline-block; 
-    margin-bottom: 15px; 
-    color: #aaa; 
-    font-weight: bold; 
+    margin: 10px auto;
+  }
+  
+  .game-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .game-card img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+  
+  .home-section h2 {
+    font-size: 2.2rem;
+  }
+  
+  .home-section p {
+    font-size: 1.1rem;
+  }
 }
 
-/* About Box */
-.about-box {
-    background: #1a1a1e; 
-    padding: 30px; 
-    border-radius: 8px; 
-    border: 1px solid #333;
-}
-.about-box p {
-    margin-bottom: 15px;
-}
-.highlight-text {
-    color: #00ff88; 
-    font-weight: bold;
-}
-
-/* Desktop Media Queries */
-@media (min-width: 768px) {
-    header {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 15px 30px;
-    }
-    nav {
-        gap: 0;
-    }
-    .hero-buttons {
-        flex-direction: row;
-    }
-    /* Fixed: Prevents the inline hero-buttons (a links) from taking up 100% width on desktop layout */
-    .hero-buttons .btn {
-        width: auto;
-        margin-top: 0;
-    }
-    .hero-banner {
-        padding: 50px;
-    }
-    .cheats-layout { 
-        flex-direction: row; 
-    }
-    .main-cheats-content { 
-        flex: 3; 
-        order: 1;
-    }
-    .related-sidebar { 
-        flex: 1; 
-        order: 2;
-        height: fit-content; 
-    }
+/* Tablets */
+@media (max-width: 768px) {
+  main {
+    padding: 30px 3%;
+  }
+  
+  .home-section {
+    padding: 40px 15px;
+  }
+  
+  .home-section h2 {
+    font-size: 2rem;
+  }
+  
+  .games-section h2,
+  .cheats-section h2 {
+    font-size: 2rem;
+  }
+  
+  .card {
+    padding: 25px;
+  }
+  
+  .cheat-text {
+    padding: 25px;
+  }
+  
+  .cheat-text h1 {
+    font-size: 1.8rem;
+  }
+  
+  .footer-links {
+    gap: 20px;
+  }
+  
+  .footer-links a {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
 }
 
-/* Cheats Page Fixes and Search Box Layout additions */
-.controls { 
-    margin-bottom: 30px; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    gap: 15px; 
+/* Mobile Phones */
+@media (max-width: 576px) {
+  header {
+    padding: 15px 3%;
+  }
+  
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  nav a {
+    width: 100%;
+    max-width: 250px;
+    padding: 12px;
+  }
+  
+  .search-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .search-input,
+  .search-button {
+    width: 100%;
+  }
+  
+  .home-section {
+    padding: 30px 10px;
+  }
+  
+  .home-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .home-section p {
+    font-size: 1rem;
+  }
+  
+  .game-card {
+    padding: 20px;
+  }
+  
+  .game-title {
+    font-size: 1.5rem;
+  }
+  
+  .cheat-btn {
+    padding: 12px 15px;
+    font-size: 1rem;
+  }
+  
+  .btn,
+  .download-btn {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+  
+  footer {
+    padding: 30px 3%;
+  }
+  
+  footer p {
+    font-size: 1rem;
+  }
+  
+  .back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+  }
 }
 
-.search-box { 
-    background-color: #1f1f1f; 
-    color: #ffffff; 
-    border: 2px solid #333; 
-    padding: 12px 20px; 
-    font-size: 16px; 
-    border-radius: 5px; 
-    outline: none; 
-    width: 100%; 
-    max-width: 300px; 
-    transition: border-color 0.3s ease; 
+/* Very Small Phones */
+@media (max-width: 400px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .logo {
+    height: 40px;
+  }
+  
+  .home-section h2 {
+    font-size: 1.6rem;
+  }
+  
+  .games-section h2,
+  .cheats-section h2 {
+    font-size: 1.6rem;
+  }
+  
+  .game-info {
+    flex-basis: 100%;
+  }
+  
+  .button-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
-.search-box:focus { 
-    border-color: #00ffcc; 
+/* Game Details */
+.game-details {
+  margin-top: 20px;
+  background: rgba(26, 26, 46, 0.9);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: fadeIn 0.5s ease-out;
 }
 
-select { 
-    background-color: #1f1f1f; 
-    color: #00ffcc; 
-    border: 2px solid #00ffcc; 
-    padding: 10px 20px; 
-    font-size: 16px; 
-    border-radius: 5px; 
-    outline: none; 
-    cursor: pointer; 
-    width: 100%; 
-    max-width: 344px; 
+.spinner {
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
 }
 
-#cheats-container { 
-    max-width: 600px; 
-    margin: 0 auto; 
-    text-align: left; 
+/* No Results Message */
+.no-results {
+  text-align: center;
+  padding: 40px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.2rem;
+  grid-column: 1 / -1;
 }
 
-.cheat-card { 
-    background-color: #1f1f1f; 
-    border-left: 5px solid #00ffcc; 
-    padding: 15px; 
-    margin-bottom: 15px; 
-    border-radius: 4px; 
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3); 
+.no-results i {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: block;
+  color: var(--accent);
 }
 
-.cheat-name { 
-    font-size: 18px; 
-    font-weight: bold; 
-    margin-bottom: 5px; 
-    color: #ffffff; 
+/* Featured Games Highlight */
+.featured-game {
+  border: 3px solid var(--secondary);
+  box-shadow: 0 0 30px rgba(255, 204, 0, 0.3);
+  position: relative;
 }
 
-.cheat-code { 
-    display: inline-block; 
-    background-color: #333333; 
-    color: #ff007f; 
-    font-family: monospace; 
-    padding: 4px 8px; 
-    border-radius: 4px; 
-    font-size: 16px; 
-    font-weight: bold; 
-    margin-bottom: 8px; 
-    border: 1px solid #555; 
+.featured-game::before {
+  content: 'FEATURED';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--secondary);
+  color: var(--dark);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
-.cheat-desc { 
-    color: #aaaaaa; 
-    font-size: 14px; 
-    margin: 0; 
+/* Category Badges */
+.category-badge {
+  display: inline-block;
+  background: rgba(42, 117, 187, 0.2);
+  color: var(--info);
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  margin: 5px;
+  border: 1px solid rgba(42, 117, 187, 0.3);
 }
 
-#cheats-games-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-    gap: 20px; 
-    max-width: 1000px; 
-    margin: 30px auto; 
+/* Rating Stars */
+.rating {
+  color: var(--secondary);
+  font-size: 1.2rem;
+  margin: 10px 0;
 }
 
-.card { 
-    background-color: #1f1f1f; 
-    border: 1px solid #333; 
-    padding: 20px; 
-    border-radius: 8px; 
-    text-align: center; 
-    transition: transform 0.2s; 
+.rating i {
+  margin: 0 2px;
 }
 
-.card:hover { 
-    transform: translateY(-5px); 
-    border-color: #00ffcc; 
+/* Progress Bar for Downloads */
+.download-progress {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--info));
+  border-radius: 3px;
+  transition: width 0.3s ease;
 }

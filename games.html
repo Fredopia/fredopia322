@@ -1,29 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GameZone · Games</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Games - Walkthrough Games 322</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+  <style>
+    /* Additional styles for the toggle functionality */
+    .toggle-game-details {
+      background: #3498db;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 10px 0;
+      width: 100%;
+      text-align: center;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .toggle-game-details:hover {
+      background: #2980b9;
+    }
+    
+    .game-details {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 15px;
+      border-radius: 4px;
+      margin-top: 10px;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .download-btn {
+      background: #2ecc71;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .download-btn:hover {
+      background: #27ae60;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="logo"><i class="fas fa-gamepad"></i> GameZone</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="games.html" class="active">Games</a>
-      <a href="cheats.html">Cheats</a>
-      <a href="about.html">About</a>
-    </nav>
-  </header>
-  <div class="container">
-    <h1>Browse Games</h1>
-    <div class="search-container">
-      <input type="text" class="search-bar" placeholder="Filter games..." id="gameFilter" oninput="filterGames(this.value)">
-    </div>
-    <div class="grid" id="games-grid"></div>
+
+<header>
+  <div class="header-left">
+    <img src="images/logo.png" alt="Walkthrough Games 322 Logo" class="logo" />
+    <h1>Walkthrough Games 322</h1>
   </div>
-  <script src="script.js"></script>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="games.html">Games</a>
+    <a href="cheats.html">Cheats</a>
+  </nav>
+</header>
+
+<main>
+  <section class="games-section fade-in">
+    <h2>Download Games</h2>
+
+    <div class="game-card">
+      <button class="btn toggle-game-details" onclick="toggleGameDetails(this)">
+        Grand Theft Auto Vice City
+        <span class="toggle-icon">▼</span>
+      </button>
+
+      <div class="game-details" style="display: none;">
+        <a href="https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL3UvYy9hYjlmMzBmOThiNmZkODVmL0VVUmR2X0EzOF9wSW5JQzFiall6ZExVQjFVdVdnVXZQazFTOHpJX0ktNGE1WWc%5FZT00emRrUlo&cid=AB9F30F98B6FD85F&id=AB9F30F98B6FD85F%21sf0bf5d44f33748fa9c80b56e363374b5&parId=root&o=OneUp" target="_blank" rel="noopener noreferrer">
+          <button class="btn download-btn">Download Game </button>
+        </a>
+        <p style="margin-top: 10px; color: #eee;">
+          Download the full Grand Theft Auto Vice City game here. Click the button above to start your download. Enjoy the gameplay and explore the city!
+        </p>
+      </div>
+    </div>
+
+    <!-- Template for additional games (copy and paste this block for each new game) -->
+    <!--
+    <div class="game-card">
+      <button class="btn toggle-game-details" onclick="toggleGameDetails(this)">
+        Game Name
+        <span class="toggle-icon">▼</span>
+      </button>
+
+      <div class="game-details" style="display: none;">
+        <a href="YOUR_ONEDRIVE_LINK" target="_blank" rel="noopener noreferrer">
+          <button class="btn download-btn">Download Game via OneDrive</button>
+        </a>
+        <p style="margin-top: 10px; color: #eee;">
+          Game description goes here.
+        </p>
+      </div>
+    </div>
+    -->
+
+  </section>
+</main>
+
+<footer>
+  <p> 2025 Walkthrough Games 322. <br> All rights reserved.</p>
+</footer>
+
+
+<script>
+  // Toggle function for game details
+  function toggleGameDetails(button) {
+    const gameDetails = button.nextElementSibling;
+    const icon = button.querySelector('.toggle-icon');
+    
+    if (gameDetails.style.display === 'none') {
+      gameDetails.style.display = 'block';
+      icon.textContent = '▲';
+    } else {
+      gameDetails.style.display = 'none';
+      icon.textContent = '▼';
+    }
+  }
+  
+  // Initialize all game details as hidden
+  document.addEventListener('DOMContentLoaded', function() {
+    const details = document.querySelectorAll('.game-details');
+    details.forEach(detail => {
+      detail.style.display = 'none';
+    });
+  });
+</script>
 </body>
 </html>

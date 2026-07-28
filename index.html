@@ -1,37 +1,177 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GameZone · Home</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Walkthrough Games 322 - Your Ultimate Gaming Destination</title>
+
+  <!-- ✅ Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  <!-- ✅ Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- ✅ SEO Meta Tags -->
+  <meta name="description" content="Walkthrough Games 322 - Play and download free PC games with cheats and walkthroughs. Your ultimate gaming resource.">
+  <meta name="keywords" content="walkthrough games, gaming, PC games, download, cheats, walkthrough, free games, gaming community">
+  <meta name="author" content="Walkthrough Games 322">
+  <meta name="robots" content="index, follow">
+  
+  <!-- ✅ Google Site Verification -->
+  <meta name="google-site-verification" content="tKdcNKMR4OegTQx-YFZaP2e-iYpIT1_kmwFhMucxeEc" />
+
+  <!-- ✅ Open Graph / Social Sharing -->
+  <meta property="og:title" content="Walkthrough Games 322 - Ultimate Gaming Resource">
+  <meta property="og:description" content="Download free PC games, find cheats, and get walkthroughs for all your favorite games.">
+  <meta property="og:image" content="https://walkthroughgames322.github.io/Walkthrough-Games-322/images/logo.png">
+  <meta property="og:url" content="https://walkthroughgames322.github.io/Walkthrough-Games-322/">
+  <meta property="og:type" content="website">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Walkthrough Games 322">
+  <meta name="twitter:description" content="Your ultimate destination for free games and cheats">
+  <meta name="twitter:image" content="https://walkthroughgames322.github.io/Walkthrough-Games-322/images/logo.png">
+
+  <!-- ✅ Styles & Fonts -->
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <header>
-    <div class="logo"><i class="fas fa-gamepad"></i> GameZone</div>
-    <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="games.html">Games</a>
-      <a href="cheats.html">Cheats</a>
-      <a href="about.html">About</a>
-    </nav>
-  </header>
-  <div class="container">
-    <div class="search-container">
-      <input type="text" class="search-bar" placeholder="Search games or cheats..." id="globalSearch" oninput="filterCards(this.value)">
-    </div>
-    <div class="hero-banner">
-      <h2>Your Ultimate Gaming Hub</h2>
-      <p>Download full games free &amp; access the largest cheat database.</p>
-      <div class="hero-buttons">
-        <a href="games.html" class="btn accent-btn"><i class="fas fa-rocket"></i> Browse Downloads</a>
-        <a href="cheats.html" class="btn dark-btn"><i class="fas fa-bolt"></i> Find Cheats</a>
+
+<header>
+  <div class="header-left">
+    <img src="images/logo.png" alt="Walkthrough Games 322 Logo" class="logo" data-tooltip="Walkthrough Games 322">
+    <h1>Walkthrough Games 322</h1>
+  </div>
+  
+  <!-- Search Bar -->
+  <div class="search-container">
+    <input type="text" class="search-input" placeholder="Search games, cheats...">
+    <button class="search-button">
+      <i class="fas fa-search"></i> Search
+    </button>
+  </div>
+  
+  <nav>
+    <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="games.html"><i class="fas fa-gamepad"></i> Games</a>
+    <a href="cheats.html"><i class="fas fa-code"></i> Cheats</a>
+  </nav>
+</header>
+
+<main>
+  <section class="home-section fade-in">
+    <h2>Welcome to Walkthrough Games 322!</h2>
+    <p>Your ultimate destination for free PC games, comprehensive walkthroughs, and powerful cheats. Explore our collection and enhance your gaming experience.</p>
+    
+    <div class="card" style="margin-top: 40px;">
+      <h3 style="color: var(--secondary); margin-bottom: 20px; text-align: center;">🎮 What We Offer</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="text-align: center; padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 10px;">
+          <i class="fas fa-download" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 15px;"></i>
+          <h4 style="color: var(--secondary); margin-bottom: 10px;">Free Game Downloads</h4>
+          <p>Download the best PC games completely free</p>
+        </div>
+        
+        <div style="text-align: center; padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 10px;">
+          <i class="fas fa-code" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 15px;"></i>
+          <h4 style="color: var(--secondary); margin-bottom: 10px;">Game Cheats</h4>
+          <p>Unlock hidden features with our cheat codes</p>
+        </div>
+        
+        <div style="text-align: center; padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 10px;">
+          <i class="fas fa-walking" style="font-size: 2.5rem; color: var(--success); margin-bottom: 15px;"></i>
+          <h4 style="color: var(--secondary); margin-bottom: 10px;">Walkthroughs</h4>
+          <p>Complete guides to help you beat any game</p>
+        </div>
       </div>
     </div>
-    <h2 class="section-title">Featured Games</h2>
-    <div class="grid" id="home-featured-grid"></div>
+    
+    <div style="margin-top: 40px; text-align: center;">
+      <a href="games.html" class="btn" style="margin-right: 15px;">
+        <i class="fas fa-gamepad"></i> Browse Games
+      </a>
+      <a href="cheats.html" class="btn" style="background: linear-gradient(45deg, var(--secondary), #ff9500);">
+        <i class="fas fa-code"></i> View Cheats
+      </a>
+    </div>
+  </section>
+  
+  <!-- Featured Games Preview -->
+  <section class="card" style="margin-top: 40px;">
+    <h3 style="color: var(--secondary); text-align: center; margin-bottom: 30px;">🔥 Featured Games</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+      <div class="featured-game" style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 10px;">
+        <h4 style="color: var(--primary); margin-bottom: 10px;">🎮 GTA Vice City</h4>
+        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 15px;">Classic open-world action in 80s Miami</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+          <span style="margin-left: 10px; color: var(--secondary);">4.5/5</span>
+        </div>
+        <span class="category-badge">Action</span>
+        <span class="category-badge">Open World</span>
+      </div>
+      
+      <div style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 10px;">
+        <h4 style="color: var(--primary); margin-bottom: 10px;">⛏️ Minecraft</h4>
+        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 15px;">Build, explore, and survive</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <span style="margin-left: 10px; color: var(--secondary);">5.0/5</span>
+        </div>
+        <span class="category-badge">Sandbox</span>
+        <span class="category-badge">Adventure</span>
+      </div>
+      
+      <div style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 10px;">
+        <h4 style="color: var(--primary); margin-bottom: 10px;">🔫 Counter Strike 1.6</h4>
+        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 15px;">Classic tactical shooter</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+          <span style="margin-left: 10px; color: var(--secondary);">4.7/5</span>
+        </div>
+        <span class="category-badge">FPS</span>
+        <span class="category-badge">Multiplayer</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="games.html"><i class="fas fa-gamepad"></i> Games</a>
+    <a href="cheats.html"><i class="fas fa-code"></i> Cheats</a>
+    <a href="#" onclick="showToast('Contact page coming soon!', 'info')"><i class="fas fa-envelope"></i> Contact</a>
   </div>
-  <script src="script.js"></script>
+  
+  <p>
+    <i class="fas fa-copyright"></i> 2025 Walkthrough Games 322. <br>
+    All rights reserved. | Made with <i class="fas fa-heart" style="color: var(--accent);"></i> for gamers
+  </p>
+  
+  <p style="margin-top: 15px; font-size: 0.9rem; color: rgba(255, 255, 255, 0.6);">
+    All game downloads are for personal use only. Cheats should be used in single-player mode.
+  </p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
