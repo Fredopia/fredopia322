@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GameZone · Games</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
@@ -17,92 +17,13 @@
       <a href="about.html">About</a>
     </nav>
   </header>
-
   <div class="container">
-    <h1>Browse & Direct Upload Games</h1>
-
-    <!-- Search Engine Input -->
+    <h1>Browse Games</h1>
     <div class="search-container">
-      <input type="text" class="search-bar" placeholder="🔍 Search games..." id="search-bar">
+      <input type="text" class="search-bar" placeholder="Filter games..." id="gameFilter" oninput="filterGames(this.value)">
     </div>
-
-    <!-- Direct Games Upload Section -->
-    <div class="grid" id="games-grid">
-      
-      <!-- Game 1 -->
-      <div class="card game-search-card" data-name="cyber rush 2026">
-        <div>
-          <h3>Cyber Rush 2026</h3>
-          <p style="color:#aaa; margin-bottom:5px;">Category: Action / Sci-Fi</p>
-          <p style="color:#aaa; font-size:14px;">File Size: 45 GB</p>
-        </div>
-        <a href="https://example.com" class="btn accent-btn" download target="_blank">Download Now</a>
-      </div>
-
-      <!-- Game 2 -->
-      <div class="card game-search-card" data-name="shadow ninja: vengeance">
-        <div>
-          <h3>Shadow Ninja: Vengeance</h3>
-          <p style="color:#aaa; margin-bottom:5px;">Category: Stealth / RPG</p>
-          <p style="color:#aaa; font-size:14px;">File Size: 12 GB</p>
-        </div>
-        <a href="https://example.com" class="btn accent-btn" download target="_blank">Download Now</a>
-      </div>
-
-      <!-- Game 3 -->
-      <div class="card game-search-card" data-name="speed horizon tracker">
-        <div>
-          <h3>Speed Horizon Tracker</h3>
-          <p style="color:#aaa; margin-bottom:5px;">Category: Racing / Simulation</p>
-          <p style="color:#aaa; font-size:14px;">File Size: 28 GB</p>
-        </div>
-        <a href="https://example.com" class="btn accent-btn" download target="_blank">Download Now</a>
-      </div>
-
-      <!-- Game 4 -->
-      <div class="card game-search-card" data-name="realm of fantasy vii">
-        <div>
-          <h3>Realm of Fantasy VII</h3>
-          <p style="color:#aaa; margin-bottom:5px;">Category: Open World / MMORPG</p>
-          <p style="color:#aaa; font-size:14px;">File Size: 62 GB</p>
-        </div>
-        <a href="https://example.com" class="btn accent-btn" download target="_blank">Download Now</a>
-      </div>
-
-      <!-- Game 5 -->
-      <div class="card game-search-card" data-name="grand theft auto: vice city">
-        <div>
-          <h3>Grand Theft Auto: Vice City</h3>
-          <p style="color:#aaa; margin-bottom:5px;">Category: Action / Open World</p>
-          <p style="color:#aaa; font-size:14px;">File Size: 1.5 GB</p>
-        </div>
-        <a href="https://example.com" class="btn accent-btn" download target="_blank">Download Now</a>
-      </div>
-
-      <!-- Game 6 -->
-      <div class="card game-search-card" data-name="survival instinct">
-        <div>
-          <h3>Survival Instinct</h3>
-          <p style="color:#aaa; margin-bottom:5px;">Category: Horror / Sandbox</p>
-          <p style="color:#aaa; font-size:14px;">File Size: 18 GB</p>
-        </div>
-        <a href="https://example.com" class="btn accent-btn" download target="_blank">Download Now</a>
-      </div>
-
-      <!-- ADD NEW GAMES DIRECTLY HERE IN HTML:
-      <div class="card game-search-card" data-name="your game name here lowercased">
-        <div>
-          <h3>Your Game Name</h3>
-          <p style="color:#aaa; margin-bottom:5px;">Category: Action</p>
-          <p style="color:#aaa; font-size:14px;">File Size: 5 GB</p>
-        </div>
-        <a href="YOUR_REAL_DOWNLOAD_LINK" class="btn accent-btn" download target="_blank">Download Now</a>
-      </div>
-      -->
-
-    </div>
+    <div class="grid" id="games-grid"></div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
