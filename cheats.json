@@ -1,0 +1,113 @@
+{
+  "games": [
+    {
+      "id": 1,
+      "name": "Cyber Rush 2026",
+      "type": "Action / Sci-Fi",
+      "size": "45 GB",
+      "downloadLink": "https://example.com",
+      "cheats": [
+        { "code": "NOLIMITS", "effect": "Infinite Boost / Nitro" },
+        { "code": "GODMODE", "effect": "Invincibility to damage" },
+        { "code": "CASH999", "effect": "Adds $999,999 to inventory" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Shadow Ninja: Vengeance",
+      "type": "Stealth / RPG",
+      "size": "12 GB",
+      "downloadLink": "https://example.com",
+      "cheats": [
+        { "code": "GHOST", "effect": "Full invisibility to enemies" },
+        { "code": "ONESHOT", "effect": "Kill any enemy with one strike" },
+        { "code": "ALLITEMS", "effect": "Unlock all weapons instantly" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Speed Horizon Tracker",
+      "type": "Racing / Simulation",
+      "size": "28 GB",
+      "downloadLink": "https://example.com",
+      "cheats": [
+        { "code": "AUTOSTEER", "effect": "Perfect cornering assist" },
+        { "code": "UNLOCKCARS", "effect": "Instantly unlock every supercar" }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Realm of Fantasy VII",
+      "type": "Open World / MMORPG",
+      "size": "62 GB",
+      "downloadLink": "https://example.com",
+      "cheats": [
+        { "code": "MAXLEVEL", "effect": "Instantly levels character to 100" },
+        { "code": "INFMANA", "effect": "Mana gauge never depletes" },
+        { "code": "FLYMODE", "effect": "Allows flying over standard terrain barriers" }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Grand Theft Auto: Vice City",
+      "type": "Action / Open World",
+      "size": "1.5 GB",
+      "downloadLink": "https://example.com",
+      "cheats": [      
+        { "code": "ASPIRINE", "effect": "Restores full health to Tommy Vercetti" }, 
+        { "code": "PRECIOUSPROTECTION", "effect": "Provides maximum body armor" }, 
+        { "code": "THUGSTOOLS", "effect": "Unlocks Light Weapon Set (Tier 1)" }, 
+        { "code": "PROFESSIONALTOOLS", "effect": "Unlocks Medium Weapon Set (Tier 2)" }, 
+        { "code": "NUTTERTOOLS", "effect": "Unlocks Heavy Weapon Set (Tier 3)" }, 
+        { "code": "PANZER", "effect": "Spawns a Rhino Military Tank" }, 
+        { "code": "LEAVEMEALONE", "effect": "Completely removes your Wanted Level" }, 
+        { "code": "YOUWONTTAKEMEALIVE", "effect": "Increases your Wanted Level by 2 stars" }, 
+        { "code": "SEAWAYS", "effect": "Allows land vehicles to drive over water" }, 
+        { "code": "COMEFLYWITHME", "effect": "Enables land vehicles to fly in the air" }, 
+        { "code": "BIGBANG", "effect": "Explodes all nearby vehicles instantly" }, 
+        { "code": "ICANTTAKEITANYMORE", "effect": "Forces Tommy Vercetti to commit suicide" }, 
+        { "code": "GETTHEREFAST", "effect": "Spawns a Sabre Turbo sports car" }, 
+        { "code": "ROCKANDROLLCAR", "effect": "Spawns the Love Fist stretch limousine" }, 
+        { "code": "RUBBISHCAR", "effect": "Spawns a Trashmaster garbage truck" }, 
+        { "code": "BETTERTHANWALKING", "effect": "Spawns a Caddie golf cart" }, 
+        { "code": "THELASTRIDE", "effect": "Spawns a Romero's Hearse funeral car" }, 
+        { "code": "TRAVELINSTYLE", "effect": "Spawns a Bloodring Banger stock car" }, 
+        { "code": "GETTHEREVERYFASTINDEED", "effect": "Spawns a Hotring Racer stock car" }, 
+        { "code": "GRIPISEVERYTHING", "effect": "Grants perfect car handling and braking" }, 
+        { "code": "WHEELSAREALLINEED", "effect": "Makes car bodies invisible, leaving only wheels" }, 
+        { "code": "FANNYMAGNET", "effect": "Causes female pedestrians to follow Tommy" }, 
+        { "code": "OURGODGIVENRIGHTTOBEARARMS", "effect": "Gives weapons to all pedestrians" }, 
+        { "code": "NOBODYLIKESME", "effect": "Makes pedestrians aggressive and attack you" }, 
+        { "code": "FIGHTFIGHTFIGHT", "effect": "Triggers a full pedestrian riot in the city" }, 
+        { "code": "ONSPEED", "effect": "Speeds up the overall gameplay velocity" }, 
+        { "code": "BOOOOOORING", "effect": "Slows down the overall gameplay velocity" }, 
+        { "code": "LIFEISPASSINGMEBY", "effect": "Speeds up the in-game clock time" }, 
+        { "code": "ALOVELYDAY", "effect": "Changes the current weather to sunny" }, 
+        { "code": "APLEASANTDAY", "effect": "Changes the current weather to cloudy" }, 
+        { "code": "ABITDRIEG", "effect": "Changes the current weather to dense clouds" }, 
+        { "code": "CANTSEEATHING", "effect": "Changes the current weather to thick fog" }, 
+        { "code": "CATSANDDOGS", "effect": "Changes the current weather to stormy rain" }, 
+        { "code": "LOOKLIKELANCE", "effect": "Changes Tommy's skin to Lance Vance" }, 
+        { "code": "MYSONISALAWYER", "effect": "Changes Tommy's skin to Ken Rosenberg" }, 
+        { "code": "ILOOKLIKEHILARY", "effect": "Changes Tommy's skin to Hilary King" }, 
+        { "code": "ROCKANDROLLMAN", "effect": "Changes Tommy's skin to Love Fist's Jezz Torent" }, 
+        { "code": "WELOVEOURDICK", "effect": "Changes Tommy's skin to Love Fist's Dick" }, 
+        { "code": "ONEARMEDBANDIT", "effect": "Changes Tommy's skin to Phil Cassidy" }, 
+        { "code": "CHEATSHAVEBEENCRACKED", "effect": "Changes Tommy's skin to Ricardo Diaz" }, 
+        { "code": "IDONTHAVETHEMONEYSONNY", "effect": "Changes Tommy's skin to Sonny Forelli" },      
+        { "code": "FOXYLITTLETHING", "effect": "Changes Tommy's skin to Mercedes Cortez" } 
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Survival Instinct",
+      "type": "Horror / Sandbox",
+      "size": "18 GB",
+      "downloadLink": "https://example.com",
+      "cheats": [
+        { "code": "HEALME", "effect": "Instantly restores full health bars" },
+        { "code": "NOHUNGER", "effect": "Freezes food and hydration levels" }
+      ]
+    }
+  ]
+}
