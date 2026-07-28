@@ -272,3 +272,105 @@ h1 {
         height: fit-content; 
     }
 }
+
+/* Cheats Page Fixes and Search Box Layout additions */
+.controls { 
+    margin-bottom: 30px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 15px; 
+}
+
+.search-box { 
+    background-color: #1f1f1f; 
+    color: #ffffff; 
+    border: 2px solid #333; 
+    padding: 12px 20px; 
+    font-size: 16px; 
+    border-radius: 5px; 
+    outline: none; 
+    width: 100%; 
+    max-width: 300px; 
+    transition: border-color 0.3s ease; 
+}
+
+.search-box:focus { 
+    border-color: #00ffcc; 
+}
+
+select { 
+    background-color: #1f1f1f; 
+    color: #00ffcc; 
+    border: 2px solid #00ffcc; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    border-radius: 5px; 
+    outline: none; 
+    cursor: pointer; 
+    width: 100%; 
+    max-width: 344px; 
+}
+
+#cheats-container { 
+    max-width: 600px; 
+    margin: 0 auto; 
+    text-align: left; 
+}
+
+.cheat-card { 
+    background-color: #1f1f1f; 
+    border-left: 5px solid #00ffcc; 
+    padding: 15px; 
+    margin-bottom: 15px; 
+    border-radius: 4px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3); 
+}
+
+.cheat-name { 
+    font-size: 18px; 
+    font-weight: bold; 
+    margin-bottom: 5px; 
+    color: #ffffff; 
+}
+
+.cheat-code { 
+    display: inline-block; 
+    background-color: #333333; 
+    color: #ff007f; 
+    font-family: monospace; 
+    padding: 4px 8px; 
+    border-radius: 4px; 
+    font-size: 16px; 
+    font-weight: bold; 
+    margin-bottom: 8px; 
+    border: 1px solid #555; 
+}
+
+.cheat-desc { 
+    color: #aaaaaa; 
+    font-size: 14px; 
+    margin: 0; 
+}
+
+#cheats-games-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 20px; 
+    max-width: 1000px; 
+    margin: 30px auto; 
+}
+
+.card { 
+    background-color: #1f1f1f; 
+    border: 1px solid #333; 
+    padding: 20px; 
+    border-radius: 8px; 
+    text-align: center; 
+    transition: transform 0.2s; 
+}
+
+.card:hover { 
+    transform: translateY(-5px); 
+    border-color: #00ffcc; 
+}
